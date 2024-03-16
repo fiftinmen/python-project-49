@@ -1,3 +1,5 @@
+setup: install build package-force-reinstall
+
 install:
 	poetry install
 
