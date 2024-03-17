@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 
-import prompt
 import random
 from . import brain_engine
 from . import functions
@@ -13,10 +12,12 @@ def generate_pair_of_numbers():
 
 def find_greatest_common_divisor(pair_of_numbers: str) -> int:
     numbers = [int(n) for n in pair_of_numbers.split(' ')]
-    upper_limit = min(numbers[0] // 2, numbers[1] // 2)
-    for n in range(upper_limit, 0, -1):
-        if numbers[0] % n == 0 and numbers[1] % n == 0:
-            return n
+    while numbers[0] != numbers[1]:
+        if numbers[0] > numbers[1]:
+            numbers[0] = numbers[0] - numbers[1]
+        else:
+            numbers[1] = numbers[1] - numbers[0]
+    return numbers[0]
 
 
 
