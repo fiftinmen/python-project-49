@@ -4,6 +4,7 @@
 import prompt
 import random
 from . import brain_engine
+from . import functions
 
 
 def generate_expression():
@@ -32,7 +33,7 @@ rules = 'What is a result of expression?' + \
 
 def main():
     brain_engine.game(rules=rules,
-                      input_function=brain_calc_input,
+                      input_function=functions.integer_input,
                       question_generator=generate_expression,
                       correct_answer_generator=evaluate_expression)
 
