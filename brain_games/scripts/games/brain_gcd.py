@@ -28,7 +28,7 @@ def main():
     brain_engine.game(rules=rules,
                       input_function=functions.integer_input,
                       question_generator=generate_pair_of_numbers,
-                      correct_answer_generator=find_greatest_common_divisor)
+                      correct_answer_generator=calc_greatest_common_divisor)
 
 
 if __name__ == '__main__':
