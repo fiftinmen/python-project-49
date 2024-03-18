@@ -3,6 +3,7 @@ import random
 
 MAX_NUMBER = 100
 
+
 def integer_input():
     return prompt.integer(prompt='Your answer: ', empty=False)
 

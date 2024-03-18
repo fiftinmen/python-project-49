@@ -20,7 +20,6 @@ def calc_greatest_common_divisor(pair_of_numbers: str) -> int:
     return numbers[0]
 
 
-
 rules = 'Find the greatest common divisor of given numbers.'
 
 

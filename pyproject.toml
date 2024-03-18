@@ -2,7 +2,7 @@
 name = "hexlet-code"
 version = "0.1.0"
 description = "Games for your brain. Train you calculating muscle in five games. Brain-even: guess if the number is even or not. Brain-calc: evaluate arithmetic expressions. Brain-gcd: calculate greatest common divisor. Brain-prime: find out whether the number is prime. Brain_progression: find out the missing element of arithmetic progression."
-classifiers = "Topic :: Games/Entertainment"
+classifiers = ["Topic :: Games/Entertainment"]
 authors = ["fiftinmen <fiftin.men@gmail.com>"]
 readme = "README.md"
 packages = [
