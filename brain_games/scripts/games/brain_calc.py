@@ -10,7 +10,7 @@ OPERATIONS = {
     1: '+',
     2: '-',
     3: '*',
-    }
+}
 OPERATIONS_NUMBER = len(OPERATIONS)
 
 
