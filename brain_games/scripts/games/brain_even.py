@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from . import brain_engine
-from . import functions
+from .. import brain_engine
+from .. import functions
 
 
 def even_yes_or_no(number: int) -> str:

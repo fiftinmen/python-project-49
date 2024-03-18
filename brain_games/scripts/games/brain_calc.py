@@ -3,8 +3,8 @@
 
 import prompt
 import random
-from . import brain_engine
-from . import functions
+from .. import brain_engine
+from .. import functions
 
 
 def generate_expression():
