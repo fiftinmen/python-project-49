@@ -11,7 +11,7 @@ def prime_yes_or_no(number: int) -> str:
     return 'yes'
 
 
-rules = 'Answer "yes" if the number is prime, otherwise answer "no".'
+rules = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def main():
