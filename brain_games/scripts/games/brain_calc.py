@@ -13,8 +13,9 @@ def generate_expression():
         2: '-',
         3: '*',
     }
+    operations_number = len(operations)
     numbers_list = [functions.generate_number() for _ in range(2)]
-    operation = operations[random.randint(1, 4)]
+    operation = operations[random.randint(1, operations_number)]
     return f'{numbers_list[0]} {operation} {numbers_list[1]}'
 
 
