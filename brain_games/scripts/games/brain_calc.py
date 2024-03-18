@@ -12,7 +12,6 @@ def generate_expression():
         1: '+',
         2: '-',
         3: '*',
-        4: '/'
     }
     numbers_list = [functions.generate_number() for _ in range(2)]
     operation = operations[random.randint(1, 4)]
@@ -27,8 +26,7 @@ def brain_calc_input():
     return prompt.integer(prompt='Your answer: ', empty=False)
 
 
-rules = 'What is a result of expression?' + \
-    '(In case of division round to the nearest integer number)'
+rules = 'What is a result of expression?'
 
 
 def main():
