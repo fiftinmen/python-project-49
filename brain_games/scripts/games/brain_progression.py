@@ -7,11 +7,16 @@ from . import functions
 
 
 def generate_progression():
+    MAX_PROGRESSION_STEP = 30
+    MIN_PROGRESSION_LENGTH = 5
+    MAX_START_NUMBER = 50
+
+    
     progression = ''
-    progression_length = random.randint(0, 4)+5
+    progression_length = random.randint(0, 4)+MIN_PROGRESSION_LENGTH
     missing_element = random.randint(1, progression_length-1)
-    number = random.randint(0, 50)
-    progression_step = random.randint(1, 30)
+    number = random.randint(0, MAX_START_NUMBER)
+    progression_step = random.randint(1, MAX_PROGRESSION_STEP)
     for i in range(0, progression_length):
         if i != missing_element:
             progression += f'{str(number)}, '

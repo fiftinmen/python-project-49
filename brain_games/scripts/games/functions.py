@@ -1,17 +1,18 @@
 import prompt
 import random
 
+MAX_NUMBER = 100
 
 def integer_input():
     return prompt.integer(prompt='Your answer: ', empty=False)
 
 
 def generate_number():
-    return random.randint(-1000, 1000)
+    return random.randint(-MAX_NUMBER, MAX_NUMBER)
 
 
 def generate_natural_number():
-    return random.randint(1, 1000)
+    return random.randint(1, MAX_NUMBER)
 
 
 def yes_no_input():
