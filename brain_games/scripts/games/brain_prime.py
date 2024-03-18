@@ -5,7 +5,7 @@ from .. import functions
 
 
 def prime_yes_or_no(number: int) -> str:
-    for i in range(2, number // 2+1):
+    for i in range(2, number // 2 + 1):
         if number % i == 0:
             return 'no'
     return 'yes'

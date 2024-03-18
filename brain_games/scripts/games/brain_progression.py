@@ -18,7 +18,7 @@ def generate_progression():
     progression = []
     progression_length = random.randint(0, VAR_PROGRESSION_LENGTH) + \
         MIN_PROGRESSION_LENGTH
-    missing_element = random.randint(1, progression_length-2)
+    missing_element = random.randint(1, progression_length - 2)
     number = random.randint(0, MAX_START_NUMBER)
     progression_step = random.randint(1, MAX_PROGRESSION_STEP)
     for i in range(0, progression_length):
@@ -39,8 +39,8 @@ def find_missing_element(sequence: str) -> int:
 def calc_missing_element(progression: str) -> int:
     elements = [n for n in progression.split(' ')]
     missing_element_index = find_missing_element(elements)
-    return (int(elements[missing_element_index-1]) +
-            int(elements[missing_element_index + 1])) // 2
+    return (int(elements[missing_element_index - 1])
+            + int(elements[missing_element_index + 1])) // 2
 
 
 rules = 'What number is missing in the progression?'

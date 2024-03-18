@@ -7,9 +7,9 @@ from .. import brain_engine
 from .. import functions
 
 OPERATIONS = {
-        1: '+',
-        2: '-',
-        3: '*',
+    1: '+',
+    2: '-',
+    3: '*',
     }
 OPERATIONS_NUMBER = len(OPERATIONS)
 

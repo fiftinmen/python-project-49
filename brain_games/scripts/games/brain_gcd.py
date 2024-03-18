@@ -7,7 +7,7 @@ from .. import functions
 
 
 def generate_pair_of_numbers():
-    return str(random.randint(1, 100))+' '+str(random.randint(1, 100))
+    return str(random.randint(1, 100)) + ' ' + str(random.randint(1, 100))
 
 
 def calc_greatest_common_divisor(pair_of_numbers: str) -> int:
