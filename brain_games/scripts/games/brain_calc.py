@@ -26,7 +26,7 @@ def brain_calc_input():
     return prompt.integer(prompt='Your answer: ', empty=False)
 
 
-rules = 'What is the result of expression?'
+rules = 'What is the result of the expression?'
 
 
 def main():
