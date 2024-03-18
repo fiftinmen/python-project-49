@@ -6,16 +6,17 @@ import random
 from .. import brain_engine
 from .. import functions
 
-
-def generate_expression():
-    operations = {
+OPERATIONS = {
         1: '+',
         2: '-',
         3: '*',
     }
-    operations_number = len(operations)
+OPERATIONS_NUMBER = len(OPERATIONS)
+
+
+def generate_expression():
     numbers_list = [functions.generate_number() for _ in range(2)]
-    operation = operations[random.randint(1, operations_number)]
+    operation = OPERATIONS[random.randint(1, OPERATIONS_NUMBER)]
     return f'{numbers_list[0]} {operation} {numbers_list[1]}'
 
 
