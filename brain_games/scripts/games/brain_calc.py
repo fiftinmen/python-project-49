@@ -14,7 +14,7 @@ def generate_expression():
         3: '*',
         4: '/'
     }
-    numbers_list = [str(random.randint(-100, 100)) for _ in range(2)]
+    numbers_list = [functions.generate_number() for _ in range(2)]
     operation = operations[random.randint(1, 4)]
     return f'{numbers_list[0]} {operation} {numbers_list[1]}'
 
