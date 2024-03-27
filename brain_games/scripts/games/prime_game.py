@@ -9,7 +9,7 @@ from brain_games.scripts.games.common_logic import (bool_to_yes_no,
 def prime_yes_no(number: int) -> str:
     return bool_to_yes_no(
         is_prime(number)
-        )
+    )
 
 
 BRAIN_PRIME_PROMPT = 'Answer "yes" if given number is prime. '\
@@ -22,4 +22,4 @@ def brain_prime():
         input_function=yes_no_input,
         question_generator=generate_natural_number,
         correct_answer_generator=prime_yes_no
-        )
+    )
