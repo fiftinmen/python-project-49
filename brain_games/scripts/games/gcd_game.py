@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-
-
 import random
-from .. import brain_engine
-from .. import functions
 
 
 def generate_pair_of_numbers():
@@ -20,15 +15,4 @@ def calc_greatest_common_divisor(pair_of_numbers: str) -> int:
     return numbers[0]
 
 
-rules = 'Find the greatest common divisor of given numbers.'
-
-
-def main():
-    brain_engine.game(rules=rules,
-                      input_function=functions.integer_input,
-                      question_generator=generate_pair_of_numbers,
-                      correct_answer_generator=calc_greatest_common_divisor)
-
-
-if __name__ == '__main__':
-    main()
+BRAIN_GCD_PROMPT = 'Find the greatest common divisor of given numbers.'

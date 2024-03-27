@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-
-
 import random
-from .. import brain_engine
-from .. import functions
 
 
 HIDDEN_ELEMENT_MARKER = '..'
@@ -43,15 +38,4 @@ def calc_missing_element(progression: str) -> int:
             + int(elements[missing_element_index + 1])) // 2
 
 
-rules = 'What number is missing in the progression?'
-
-
-def main():
-    brain_engine.game(rules=rules,
-                      input_function=functions.integer_input,
-                      question_generator=generate_progression,
-                      correct_answer_generator=calc_missing_element)
-
-
-if __name__ == '__main__':
-    main()
+BRAIN_PROGRESSION_PROMPT = 'What number is missing in the progression?'

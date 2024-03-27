@@ -1,15 +1,17 @@
 import prompt
 
+MAX_ATTEMPTS = 3
 
-def game(rules: str,
+
+def game(game_prompt: str,
          question_generator: callable,
          correct_answer_generator: callable,
          input_function: callable) -> None:
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
     print(f'Hello, {name}')
-    print(rules)
-    for _ in range(3):
+    print(game_prompt)
+    for _ in range(MAX_ATTEMPTS):
         question = question_generator()
         correct_answer = correct_answer_generator(question)
         print(f'Question: {question}')
