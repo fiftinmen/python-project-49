@@ -48,4 +48,4 @@ def brain_progression():
         input_function=integer_input,
         question_generator=generate_progression,
         correct_answer_generator=calc_missing_element
-        )
+    )

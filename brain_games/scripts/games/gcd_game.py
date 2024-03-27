@@ -26,4 +26,4 @@ def brain_gcd():
         input_function=integer_input,
         question_generator=generate_pair_of_numbers,
         correct_answer_generator=calc_greatest_common_divisor
-        )
+    )

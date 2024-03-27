@@ -44,7 +44,7 @@ def parse_expression(expression):
     expression_members = []
     operations = []
     for i, part in enumerate(expression_parts):
-        if not is_even(i+1):
+        if not is_even(i + 1):
             expression_members.append(parse_integer(part))
         else:
             operations.append(part)

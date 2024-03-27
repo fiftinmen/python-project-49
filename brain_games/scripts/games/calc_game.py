@@ -33,12 +33,14 @@ OPERATIONS_COUNT = EXPRESSION_MEMBERS_COUNT - 1
 
 
 def generate_expression():
-    expression_members_list = [format_integer(
-        generate_number()
-        ) for _ in range(EXPRESSION_MEMBERS_COUNT)]
-    operations = [OPERATION_TYPES[
-        random.randint(1, OPERATION_TYPES_COUNT)
-        ] for _ in range(OPERATIONS_COUNT)]
+    expression_members_list = [
+        format_integer(generate_number())
+        for _ in range(EXPRESSION_MEMBERS_COUNT)
+    ]
+    operations = [
+        OPERATION_TYPES[random.randint(1, OPERATION_TYPES_COUNT)]
+        for _ in range(OPERATIONS_COUNT)
+    ]
     expression = expression_members_list[0]
     for i, member in enumerate(expression_members_list[1:]):
         expression = f' {operations[i]} '.join([expression, member])
@@ -49,8 +51,8 @@ def apply_operation(numbers, operations, operation):
     i = 0
     while i < len(operations):
         if operations[i] == operation:
-            numbers[i] = DO_OPERATION[operation](numbers[i], numbers[i+1])
-            numbers.pop(i+1)
+            numbers[i] = DO_OPERATION[operation](numbers[i], numbers[i + 1])
+            numbers.pop(i + 1)
             operations.pop(i)
             i = 0
         else:
@@ -80,4 +82,4 @@ def brain_calc():
         input_function=integer_input,
         question_generator=generate_expression,
         correct_answer_generator=evaluate_expression
-        )
+    )
