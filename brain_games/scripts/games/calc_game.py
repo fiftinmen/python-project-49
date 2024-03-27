@@ -43,21 +43,25 @@ def generate_expression():
     return expression
 
 
+def apply_operation(numbers, operations, operation):
+    i = 0
+    while i < len(operations):
+        if operations[i] == operation:
+            numbers[i] = DO_OPERATION[operation](numbers[i], numbers[i+1])
+            numbers.pop(i+1)
+            operations.pop(i)
+            i = 0
+        else:
+            i += 1
+
+
 def evaluate_expression(expression):
     numbers, operations = parse_expression(expression)
 
     for operation in OPERATIONS_ORDER:
-        i = 0
-        while i < len(operations):
-            if operations[i] == operation:
-                numbers[i] = DO_OPERATION[operation](numbers[i], numbers[i+1])
-                numbers.pop(i+1)
-                operations.pop(i)
-                i = 0
-            else:
-                i += 1
-    result = numbers[0]
+        apply_operation(numbers, operations, operation)
 
+    result = numbers[0]
     return result
 
 

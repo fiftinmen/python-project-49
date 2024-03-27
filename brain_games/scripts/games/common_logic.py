@@ -35,6 +35,12 @@ def format_integer(number):
     return str(number) if number >= 0 else f'({number})'
 
 
+def parse_integer(formatted_integer: str):
+    formatted_integer = formatted_integer.replace('(', '')
+    formatted_integer = formatted_integer.replace(')', '')
+    return int(formatted_integer)
+
+
 def parse_expression(expression):
     expression_parts = expression.split(' ')
     expression_members = []
@@ -45,12 +51,6 @@ def parse_expression(expression):
         else:
             operations.append(part)
     return expression_members, operations
-
-
-def parse_integer(formatted_integer: str):
-    formatted_integer = formatted_integer.replace('(', '')
-    formatted_integer = formatted_integer.replace(')', '')
-    return int(formatted_integer)
 
 
 YES_NO_PATTERN = r'(yes)|(no)'

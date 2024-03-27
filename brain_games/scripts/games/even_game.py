@@ -8,5 +8,5 @@ def even_yes_no(number: int) -> str:
         )
 
 
-BRAIN_EVEN_PROMPT = 'Answer "yes" if given number is even, '\
+BRAIN_EVEN_PROMPT = 'Answer "yes" if the number is even, '\
     + 'otherwise answer "no".'
