@@ -32,12 +32,10 @@ def generate_natural_number():
 
 
 def format_integer(number):
-    return str(number) if number >= 0 else f'({number})'
+    return str(number)
 
 
 def parse_integer(formatted_integer: str):
-    formatted_integer = formatted_integer.replace('(', '')
-    formatted_integer = formatted_integer.replace(')', '')
     return int(formatted_integer)
 
 
