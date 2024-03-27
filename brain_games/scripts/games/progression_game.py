@@ -1,5 +1,6 @@
 import random
-
+from brain_games.scripts.games.game_engine import game
+from brain_games.scripts.games.common_logic import integer_input
 
 HIDDEN_ELEMENT_MARKER = '..'
 MAX_PROGRESSION_STEP = 30
@@ -39,3 +40,12 @@ def calc_missing_element(progression: str) -> int:
 
 
 BRAIN_PROGRESSION_PROMPT = 'What number is missing in the progression?'
+
+
+def brain_progression():
+    game(
+        game_prompt=BRAIN_PROGRESSION_PROMPT,
+        input_function=integer_input,
+        question_generator=generate_progression,
+        correct_answer_generator=calc_missing_element
+        )

@@ -1,6 +1,8 @@
 import prompt
 import random
+from brain_games.scripts.games.game_engine import game
 from brain_games.scripts.games.common_logic import (format_integer,
+                                                    integer_input,
                                                     generate_number,
                                                     parse_expression
                                                     )
@@ -70,3 +72,12 @@ def brain_calc_input():
 
 
 BRAIN_CALC_PROMPT = 'What is the result of the expression?'
+
+
+def brain_calc():
+    game(
+        game_prompt=BRAIN_CALC_PROMPT,
+        input_function=integer_input,
+        question_generator=generate_expression,
+        correct_answer_generator=evaluate_expression
+        )
