@@ -22,4 +22,4 @@ def brain_prime():
         input_function=yes_no_input,
         question_generator=generate_natural_number,
         correct_answer_generator=prime_yes_no
-    )
+        )
