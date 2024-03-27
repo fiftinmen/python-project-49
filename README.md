@@ -1,3 +1,8 @@
+### CodeClimate tests status:
+[![Maintainability](https://api.codeclimate.com/v1/badges/f0eefad318a7f1a9514d/maintainability)](https://codeclimate.com/github/fiftinmen/python-project-49/maintainability)
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/fiftinmen/python-project-49/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/fiftinmen/python-project-49/actions)
+
 # Brain Games by fiftinmen
 
 This is my realization of Hexlet's Brain Games. Here you can practice with prime numbers, even and uneven numbers, simple calculations and determining greatest commod divisors for number pairs.
@@ -12,13 +17,6 @@ Then type in you command line name of chosen game: brain-prime, brain-gcd, brain
 brain-prime
 ```
 Then follow instructions and enjoy playing brain games.
-
-### CodeClimate tests status:
-[![Maintainability](https://api.codeclimate.com/v1/badges/f0eefad318a7f1a9514d/maintainability)](https://codeclimate.com/github/fiftinmen/python-project-49/maintainability)
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/fiftinmen/python-project-49/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/fiftinmen/python-project-49/actions)
-
-
 
 Installation and gameplay demos.
 1. Brain-even installation and and gameplay demonstration
