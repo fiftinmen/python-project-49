@@ -9,7 +9,7 @@ from brain_games.scripts.games.common_logic import (bool_to_yes_no,
 def even_yes_no(number: int) -> str:
     return bool_to_yes_no(
         is_even(number)
-        )
+    )
 
 
 BRAIN_EVEN_PROMPT = 'Answer "yes" if the number is even, '\
@@ -22,4 +22,4 @@ def brain_even():
         input_function=yes_no_input,
         question_generator=generate_number,
         correct_answer_generator=even_yes_no
-        )
+    )
