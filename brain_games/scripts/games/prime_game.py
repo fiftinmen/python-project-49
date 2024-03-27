@@ -8,5 +8,5 @@ def prime_yes_no(number: int) -> str:
         )
 
 
-BRAIN_PRIME_PROMPT = 'Answer "yes" if given number is prime.'\
-    + ' Otherwise answer "no".'
+BRAIN_PRIME_PROMPT = 'Answer "yes" if given number is prime. '\
+    + 'Otherwise answer "no".'

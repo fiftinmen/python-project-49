@@ -1,9 +1,9 @@
+# Brain Games by fiftinmen
+
 ### CodeClimate tests status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/f0eefad318a7f1a9514d/maintainability)](https://codeclimate.com/github/fiftinmen/python-project-49/maintainability)
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/fiftinmen/python-project-49/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/fiftinmen/python-project-49/actions)
-
-# Brain Games by fiftinmen
 
 This is my realization of Hexlet's Brain Games. Here you can practice with prime numbers, even and uneven numbers, simple calculations and determining greatest commod divisors for number pairs.
 
