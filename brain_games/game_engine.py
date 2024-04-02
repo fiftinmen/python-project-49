@@ -1,6 +1,6 @@
 import prompt
 
-MAX_ATTEMPTS = 3
+MAX_ATTEMPTS_COUNT = 3
 
 
 def game(game_prompt: str,
@@ -11,7 +11,7 @@ def game(game_prompt: str,
     name = prompt.string('May I have your name? ')
     print(f'Hello, {name}')
     print(game_prompt)
-    for _ in range(MAX_ATTEMPTS):
+    for _ in range(MAX_ATTEMPTS_COUNT):
         question = question_generator()
         correct_answer = correct_answer_generator(question)
         print(f'Question: {question}')

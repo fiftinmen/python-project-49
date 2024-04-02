@@ -1,11 +1,8 @@
 import prompt
 import random
-from brain_games.scripts.games.game_engine import game
-from brain_games.scripts.games.common_logic import (format_integer,
-                                                    integer_input,
-                                                    generate_number,
-                                                    parse_expression
-                                                    )
+from brain_games.common_functions import (integer_input,
+                                          generate_number_sequence
+                                          )
 
 OPERATION_TYPES = {
     1: '*',
@@ -26,24 +23,22 @@ DO_OPERATION = {
 }
 
 
-OPERATION_TYPES_COUNT = len(OPERATION_TYPES)
-ORDERED_OPERATIONS = [[] for _ in range(OPERATION_TYPES_COUNT)]
 EXPRESSION_MEMBERS_COUNT = 2
 OPERATIONS_COUNT = EXPRESSION_MEMBERS_COUNT - 1
+OPERATION_TYPES_COUNT = len(OPERATION_TYPES)
+ORDERED_OPERATIONS = [[] for _ in range(OPERATION_TYPES_COUNT)]
 
 
 def generate_expression():
-    expression_members_list = [
-        format_integer(generate_number())
-        for _ in range(EXPRESSION_MEMBERS_COUNT)
-    ]
+    expression_members_list = generate_number_sequence(EXPRESSION_MEMBERS_COUNT)
     operations = [
         OPERATION_TYPES[random.randint(1, OPERATION_TYPES_COUNT)]
         for _ in range(OPERATIONS_COUNT)
     ]
-    expression = expression_members_list[0]
+    expression = str(expression_members_list[0])
     for i, member in enumerate(expression_members_list[1:]):
-        expression = f' {operations[i]} '.join([expression, member])
+        expression = f' {operations[i]} '.join([expression, str(member)])
+    print(expression)
     return expression
 
 
@@ -57,6 +52,22 @@ def apply_operation(numbers, operations, operation):
             i = 0
         else:
             i += 1
+
+
+def parse_integer(formatted_integer: str):
+    return int(formatted_integer)
+
+
+def parse_expression(expression):
+    expression_parts = expression.split(' ')
+    expression_members = []
+    operations = []
+    for i, part in enumerate(expression_parts):
+        if i % 2 == 0:
+            expression_members.append(parse_integer(part))
+        else:
+            operations.append(part)
+    return expression_members, operations
 
 
 def evaluate_expression(expression):
@@ -77,9 +88,9 @@ BRAIN_CALC_PROMPT = 'What is the result of the expression?'
 
 
 def brain_calc():
-    game(
-        game_prompt=BRAIN_CALC_PROMPT,
-        input_function=integer_input,
-        question_generator=generate_expression,
-        correct_answer_generator=evaluate_expression
-    )
+    return {
+            "game_prompt": BRAIN_CALC_PROMPT,
+            "question_generator": generate_expression,
+            "input_function": integer_input,
+            "correct_answer_generator": evaluate_expression
+            }

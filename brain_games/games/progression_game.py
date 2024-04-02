@@ -1,28 +1,29 @@
 import random
-from brain_games.scripts.games.game_engine import game
-from brain_games.scripts.games.common_logic import integer_input
+from brain_games.common_functions import integer_input
 
-HIDDEN_ELEMENT_MARKER = '..'
-MAX_PROGRESSION_STEP = 30
 MIN_PROGRESSION_LENGTH = 5
 MAX_PROGRESSION_LENGTH = 10
 VAR_PROGRESSION_LENGTH = MAX_PROGRESSION_LENGTH - MIN_PROGRESSION_LENGTH
+
+HIDDEN_ELEMENT_MARKER = '..'
+
 MAX_START_NUMBER = 50
+MAX_PROGRESSION_STEP = 30
 
 
 def generate_progression():
     progression = []
     progression_length = random.randint(0, VAR_PROGRESSION_LENGTH) + \
         MIN_PROGRESSION_LENGTH
-    missing_element = random.randint(1, progression_length - 2)
+    missing_element_range = (1, progression_length - 2)
+    missing_element = random.randint(*missing_element_range)
     number = random.randint(0, MAX_START_NUMBER)
     progression_step = random.randint(1, MAX_PROGRESSION_STEP)
     for i in range(0, progression_length):
-        if i != missing_element:
-            progression.append(str(number))
-        else:
-            progression.append(HIDDEN_ELEMENT_MARKER)
+        progression.append(str(number))
         number += progression_step
+
+    progression[missing_element] = HIDDEN_ELEMENT_MARKER
     return ' '.join(progression)
 
 
@@ -43,9 +44,9 @@ BRAIN_PROGRESSION_PROMPT = 'What number is missing in the progression?'
 
 
 def brain_progression():
-    game(
-        game_prompt=BRAIN_PROGRESSION_PROMPT,
-        input_function=integer_input,
-        question_generator=generate_progression,
-        correct_answer_generator=calc_missing_element
-    )
+    return {
+        "game_prompt": BRAIN_PROGRESSION_PROMPT,
+        "question_generator": generate_progression,
+        "input_function": integer_input,
+        "correct_answer_generator": calc_missing_element
+    }
