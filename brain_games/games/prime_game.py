@@ -1,3 +1,4 @@
+from brain_games.game_engine import game
 from math import sqrt
 from brain_games.common_functions import (bool_to_yes_no,
                                           yes_no_input,
@@ -29,9 +30,7 @@ BRAIN_PRIME_PROMPT = 'Answer "yes" if given number is prime. '\
 
 
 def brain_prime():
-    return {
-        "game_prompt": BRAIN_PRIME_PROMPT,
-        "question_generator": generate_natural_number,
-        "input_function": yes_no_input,
-        "correct_answer_generator": prime_yes_no
-    }
+    game(game_prompt=BRAIN_PRIME_PROMPT,
+         question_generator=generate_natural_number,
+         input_function=yes_no_input,
+         correct_answer_generator=prime_yes_no)

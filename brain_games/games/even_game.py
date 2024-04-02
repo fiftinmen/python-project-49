@@ -1,3 +1,4 @@
+from brain_games.game_engine import game
 from brain_games.common_functions import (bool_to_yes_no,
                                           yes_no_input,
                                           generate_number,
@@ -19,9 +20,7 @@ BRAIN_EVEN_PROMPT = 'Answer "yes" if the number is even, '\
 
 
 def brain_even():
-    return {
-        "game_prompt": BRAIN_EVEN_PROMPT,
-        "question_generator": generate_number,
-        "input_function": yes_no_input,
-        "correct_answer_generator": even_yes_no
-    }
+    game(game_prompt=BRAIN_EVEN_PROMPT,
+         question_generator=generate_number,
+         input_function=yes_no_input,
+         correct_answer_generator=even_yes_no)

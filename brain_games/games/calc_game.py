@@ -1,5 +1,6 @@
 import prompt
 import random
+from brain_games.game_engine import game
 from brain_games.common_functions import (integer_input,
                                           generate_number_sequence
                                           )
@@ -88,9 +89,7 @@ BRAIN_CALC_PROMPT = 'What is the result of the expression?'
 
 
 def brain_calc():
-    return {
-        "game_prompt": BRAIN_CALC_PROMPT,
-        "question_generator": generate_expression,
-        "input_function": integer_input,
-        "correct_answer_generator": evaluate_expression
-    }
+    game(game_prompt=BRAIN_CALC_PROMPT,
+         question_generator=generate_expression,
+         input_function=integer_input,
+         correct_answer_generator=evaluate_expression)

@@ -1,4 +1,5 @@
 import random
+from brain_games.game_engine import game
 from brain_games.common_functions import integer_input
 
 MIN_PROGRESSION_LENGTH = 5
@@ -44,9 +45,7 @@ BRAIN_PROGRESSION_PROMPT = 'What number is missing in the progression?'
 
 
 def brain_progression():
-    return {
-        "game_prompt": BRAIN_PROGRESSION_PROMPT,
-        "question_generator": generate_progression,
-        "input_function": integer_input,
-        "correct_answer_generator": calc_missing_element
-    }
+    game(game_prompt=BRAIN_PROGRESSION_PROMPT,
+         question_generator=generate_progression,
+         input_function=integer_input,
+         correct_answer_generator=calc_missing_element)
