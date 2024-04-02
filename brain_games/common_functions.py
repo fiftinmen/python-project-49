@@ -22,9 +22,9 @@ def generate_natural_number():
 
 def generate_number_sequence(
         length,
-        min_number=-MAX_NUMBER,
+        min_number=(-MAX_NUMBER),
         max_number=MAX_NUMBER
-        ):
+):
     return [generate_number(min_number, max_number) for _ in range(length)]
 
 

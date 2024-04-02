@@ -1,7 +1,7 @@
 from brain_games.common_functions import (
     integer_input,
     generate_number_sequence,
-    )
+)
 
 
 PAIR_LENGTH = 2
@@ -11,8 +11,7 @@ def generate_pair_of_numbers():
     return ' '.join(str(number)
                     for number in generate_number_sequence(
                         PAIR_LENGTH,
-                        min_number=1
-                        )
+                        min_number=1)
                     )
 
 
@@ -31,8 +30,8 @@ BRAIN_GCD_PROMPT = 'Find the greatest common divisor of given numbers.'
 
 def brain_gcd():
     return {
-            "game_prompt": BRAIN_GCD_PROMPT,
-            "question_generator": generate_pair_of_numbers,
-            "input_function": integer_input,
-            "correct_answer_generator": calc_greatest_common_divisor
+        "game_prompt": BRAIN_GCD_PROMPT,
+        "question_generator": generate_pair_of_numbers,
+        "input_function": integer_input,
+        "correct_answer_generator": calc_greatest_common_divisor
     }

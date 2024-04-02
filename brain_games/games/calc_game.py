@@ -89,8 +89,8 @@ BRAIN_CALC_PROMPT = 'What is the result of the expression?'
 
 def brain_calc():
     return {
-            "game_prompt": BRAIN_CALC_PROMPT,
-            "question_generator": generate_expression,
-            "input_function": integer_input,
-            "correct_answer_generator": evaluate_expression
-            }
+        "game_prompt": BRAIN_CALC_PROMPT,
+        "question_generator": generate_expression,
+        "input_function": integer_input,
+        "correct_answer_generator": evaluate_expression
+    }
