@@ -1,4 +1,3 @@
-from brain_games.game_engine import game
 from brain_games.common_functions import (
     integer_input,
     generate_number_sequence,
@@ -6,6 +5,7 @@ from brain_games.common_functions import (
 
 
 PAIR_LENGTH = 2
+BRAIN_GCD_PROMPT = 'Find the greatest common divisor of given numbers.'
 
 
 def generate_pair_of_numbers():
@@ -26,11 +26,14 @@ def calc_greatest_common_divisor(pair_of_numbers: str) -> int:
     return numbers[0]
 
 
-BRAIN_GCD_PROMPT = 'Find the greatest common divisor of given numbers.'
+game_prompt = BRAIN_GCD_PROMPT
+question_generator = generate_pair_of_numbers
+input_function = integer_input
+correct_answer_generator = calc_greatest_common_divisor
 
-
-def brain_gcd():
-    game(game_prompt=BRAIN_GCD_PROMPT,
-         question_generator=generate_pair_of_numbers,
-         input_function=integer_input,
-         correct_answer_generator=calc_greatest_common_divisor)
+__all__ = {
+    'game_prompt',
+    'question_generator',
+    'input_function',
+    'correct_answer_generator'
+}
