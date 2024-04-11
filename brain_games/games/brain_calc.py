@@ -67,14 +67,14 @@ def parse_integer(formatted_integer: str):
 
 def parse_expression(expression):
     expression_parts = expression.split(' ')
-    expression_members = []
+    numbers = []
     operations = []
     for i, part in enumerate(expression_parts):
         if i % 2 == 0:
-            expression_members.append(parse_integer(part))
+            numbers.append(parse_integer(part))
         else:
             operations.append(part)
-    return expression_members, operations
+    return numbers, operations
 
 
 def evaluate_expression(expression):
