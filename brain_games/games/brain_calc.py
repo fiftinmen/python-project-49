@@ -1,11 +1,7 @@
-import prompt
 import random
-from brain_games.common_functions import (integer_input,
-                                          generate_number_sequence
-                                          )
 
 
-BRAIN_CALC_PROMPT = 'What is the result of the expression?'
+GAME_PROMPT = 'What is the result of the expression?'
 
 
 OPERATION_TYPES = {
@@ -32,9 +28,16 @@ OPERATIONS_COUNT = EXPRESSION_MEMBERS_COUNT - 1
 OPERATION_TYPES_COUNT = len(OPERATION_TYPES)
 ORDERED_OPERATIONS = [[] for _ in range(OPERATION_TYPES_COUNT)]
 
+MAX_NUMBER = 100
+
+
+def generate_number_sequence():
+    return [random.randint(-MAX_NUMBER, MAX_NUMBER)
+            for _ in range(EXPRESSION_MEMBERS_COUNT)]
+
 
 def generate_expression():
-    expression_members_list = generate_number_sequence(EXPRESSION_MEMBERS_COUNT)
+    expression_members_list = generate_number_sequence()
     operations = [
         OPERATION_TYPES[random.randint(1, OPERATION_TYPES_COUNT)]
         for _ in range(OPERATIONS_COUNT)
@@ -76,26 +79,18 @@ def parse_expression(expression):
 
 def evaluate_expression(expression):
     numbers, operations = parse_expression(expression)
-
     for operation in OPERATIONS_ORDER:
         apply_operation(numbers, operations, operation)
-
-    result = numbers[0]
-    return result
+    return numbers[0]
 
 
-def brain_calc_input():
-    return prompt.integer(prompt='Your answer: ', empty=False)
+def question_answer_generator():
+    question = generate_expression()
+    answer = evaluate_expression(question)
+    return question, answer
 
-
-game_prompt = BRAIN_CALC_PROMPT
-question_generator = generate_expression
-input_function = integer_input
-correct_answer_generator = evaluate_expression
 
 __all__ = {
-    'game_prompt',
-    'question_generator',
-    'input_function',
-    'correct_answer_generator'
+    'GAME_PROMPT',
+    'question_answer_generator',
 }

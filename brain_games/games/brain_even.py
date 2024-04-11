@@ -1,31 +1,17 @@
-from brain_games.common_functions import (bool_to_yes_no,
-                                          yes_no_input,
-                                          generate_number,
-                                          )
+import random
 
 
-BRAIN_EVEN_PROMPT = 'Answer "yes" if the number is even, '\
-    + 'otherwise answer "no".'
+GAME_PROMPT = 'Answer "yes" if the number is even, otherwise answer "no".'
+MAX_NUMBER = 100
 
 
-def is_even(number):
-    return number % 2 == 0
+def question_answer_generator():
+    question = random.randint(-MAX_NUMBER, MAX_NUMBER)
+    answer = 'yes' if question % 2 == 0 else 'no'
+    return question, answer
 
-
-def even_yes_no(number: int) -> str:
-    return bool_to_yes_no(
-        is_even(number)
-    )
-
-
-game_prompt = BRAIN_EVEN_PROMPT
-question_generator = generate_number
-input_function = yes_no_input
-correct_answer_generator = even_yes_no
 
 __all__ = {
-    'game_prompt',
-    'question_generator',
-    'input_function',
-    'correct_answer_generator'
+    'GAME_PROMPT',
+    'question_answer_generator',
 }

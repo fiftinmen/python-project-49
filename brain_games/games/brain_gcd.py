@@ -1,19 +1,13 @@
-from brain_games.common_functions import (
-    integer_input,
-    generate_number_sequence,
-)
+import random
 
 
-PAIR_LENGTH = 2
-BRAIN_GCD_PROMPT = 'Find the greatest common divisor of given numbers.'
+GAME_PROMPT = 'Find the greatest common divisor of given numbers.'
+MAX_NUMBER = 100
 
 
 def generate_pair_of_numbers():
-    return ' '.join(str(number)
-                    for number in generate_number_sequence(
-                        PAIR_LENGTH,
-                        min_number=1)
-                    )
+    return ' '.join(str(random.randint(1, MAX_NUMBER))
+                    for _ in range(2))
 
 
 def calc_greatest_common_divisor(pair_of_numbers: str) -> int:
@@ -26,14 +20,13 @@ def calc_greatest_common_divisor(pair_of_numbers: str) -> int:
     return numbers[0]
 
 
-game_prompt = BRAIN_GCD_PROMPT
-question_generator = generate_pair_of_numbers
-input_function = integer_input
-correct_answer_generator = calc_greatest_common_divisor
+def question_answer_generator():
+    question = generate_pair_of_numbers()
+    answer = calc_greatest_common_divisor(question)
+    return question, answer
+
 
 __all__ = {
-    'game_prompt',
-    'question_generator',
-    'input_function',
-    'correct_answer_generator'
+    'GAME_PROMPT',
+    'question_answer_generator',
 }
