@@ -25,7 +25,7 @@ def generate_progression():
         number += progression_step
 
     progression[missing_element] = HIDDEN_ELEMENT_MARKER
-    question = ', '.join(map(str, progression))
+    question = ' '.join(map(str, progression))
     return progression, question
 
 
