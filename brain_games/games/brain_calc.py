@@ -37,16 +37,15 @@ def generate_number_sequence():
 
 
 def generate_expression():
-    expression_members_list = generate_number_sequence()
+    numbers = generate_number_sequence()
     operations = [
         OPERATION_TYPES[random.randint(1, OPERATION_TYPES_COUNT)]
         for _ in range(OPERATIONS_COUNT)
     ]
-    expression = str(expression_members_list[0])
-    for i, member in enumerate(expression_members_list[1:]):
+    expression = str(numbers[0])
+    for i, member in enumerate(numbers[1:]):
         expression = f' {operations[i]} '.join([expression, str(member)])
-    print(expression)
-    return expression
+    return numbers, operations, expression
 
 
 def apply_operation(numbers, operations, operation):
@@ -61,32 +60,15 @@ def apply_operation(numbers, operations, operation):
             i += 1
 
 
-def parse_integer(formatted_integer: str):
-    return int(formatted_integer)
-
-
-def parse_expression(expression):
-    expression_parts = expression.split(' ')
-    numbers = []
-    operations = []
-    for i, part in enumerate(expression_parts):
-        if i % 2 == 0:
-            numbers.append(parse_integer(part))
-        else:
-            operations.append(part)
-    return numbers, operations
-
-
-def evaluate_expression(expression):
-    numbers, operations = parse_expression(expression)
+def evaluate_expression(numbers, operations):
     for operation in OPERATIONS_ORDER:
         apply_operation(numbers, operations, operation)
     return numbers[0]
 
 
 def question_answer_generator():
-    question = generate_expression()
-    answer = evaluate_expression(question)
+    numbers, operations, question = generate_expression()
+    answer = evaluate_expression(numbers, operations)
     return question, answer
 
 
