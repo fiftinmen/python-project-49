@@ -5,13 +5,17 @@ GAME_PROMPT = 'Answer "yes" if the number is even, otherwise answer "no".'
 MAX_NUMBER = 100
 
 
-def question_answer_generator():
+def is_even(number):
+    return number % 2 == 0
+
+
+def generate_question_and_answer():
     question = random.randint(-MAX_NUMBER, MAX_NUMBER)
-    answer = question % 2 == 0
+    answer = 'yes' if is_even(question) else 'no'
     return question, answer
 
 
 __all__ = {
     'GAME_PROMPT',
-    'question_answer_generator',
+    'generate_question_and_answer',
 }

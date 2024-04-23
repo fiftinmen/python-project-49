@@ -25,14 +25,7 @@ def generate_progression():
         number += progression_step
 
     progression[missing_element] = HIDDEN_ELEMENT_MARKER
-    question = ' '.join(map(str, progression))
-    return progression, question
-
-
-def find_missing_element(sequence: str) -> int:
-    for i, el in enumerate(sequence):
-        if el == HIDDEN_ELEMENT_MARKER:
-            return i
+    return progression
 
 
 def calc_missing_element(progression: list) -> int:
@@ -41,13 +34,14 @@ def calc_missing_element(progression: list) -> int:
             + progression[missing_element_index + 1]) // 2
 
 
-def question_answer_generator():
-    progression, question = generate_progression()
-    answer = calc_missing_element(progression)
+def generate_question_and_answer():
+    progression = generate_progression()
+    question = ' '.join(map(str, progression))
+    answer = str(calc_missing_element(progression))
     return question, answer
 
 
 __all__ = {
     'GAME_PROMPT',
-    'question_answer_generator',
+    'generate_question_and_answer',
 }

@@ -42,10 +42,7 @@ def generate_expression():
         OPERATION_TYPES[random.randint(1, OPERATION_TYPES_COUNT)]
         for _ in range(OPERATIONS_COUNT)
     ]
-    expression = str(numbers[0])
-    for i, member in enumerate(numbers[1:]):
-        expression = f' {operations[i]} '.join([expression, str(member)])
-    return numbers, operations, expression
+    return numbers, operations
 
 
 def apply_operation(numbers, operations, operation):
@@ -66,13 +63,16 @@ def evaluate_expression(numbers, operations):
     return numbers[0]
 
 
-def question_answer_generator():
-    numbers, operations, question = generate_expression()
-    answer = evaluate_expression(numbers, operations)
+def generate_question_and_answer():
+    numbers, operations = generate_expression()
+    question = str(numbers[0])
+    for i, number in enumerate(numbers[1:]):
+        question = f' {operations[i]} '.join([question, str(number)])
+    answer = str(evaluate_expression(numbers, operations))
     return question, answer
 
 
 __all__ = {
     'GAME_PROMPT',
-    'question_answer_generator',
+    'generate_question_and_answer',
 }

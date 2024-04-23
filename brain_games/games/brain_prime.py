@@ -11,19 +11,19 @@ FIRST_PRIME = 2
 
 def is_prime(number: int) -> str:
     if number < FIRST_NOT_PRIME:
-        return 'yes'
+        return False
     max_possible_divisor = int(sqrt(number))
     return all(
         number % i != 0 for i in range(FIRST_PRIME, max_possible_divisor + 1))
 
 
-def question_answer_generator():
+def generate_question_and_answer():
     question = random.randint(0, MAX_NUMBER)
-    answer = is_prime(question)
+    answer = 'yes' if is_prime(question) else 'no'
     return question, answer
 
 
 __all__ = {
     'GAME_PROMPT',
-    'question_answer_generator',
+    'generate_question_and_answer',
 }
