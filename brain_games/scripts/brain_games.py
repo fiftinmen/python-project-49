@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-from brain_games.game_engine import run_brain_games
+from . import cli
 
 
 def main():
-    run_brain_games()
+    cli.welcome_user()
 
 
 if __name__ == '__main__':
