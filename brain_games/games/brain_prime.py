@@ -18,7 +18,7 @@ def is_prime(number: int) -> str:
     return all(
         number % i != 0
         for i in range(FIRST_PRIME, max_possible_divisor + 1)
-    )
+        )
 
 
 def generate_question_and_answer():
